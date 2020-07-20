@@ -1,9 +1,6 @@
 import { HomeComponent } from "./home.component";
-
-/*
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { HomeComponent } from './home.component';
+import { AuthService } from '../auth.service';
 
 
 describe('HomeComponent', () => {
@@ -26,11 +23,39 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it ( 'should get sum of two number', ()=> {
+    let res= component.add(10, 20)
+    expect(res).toBe(30)
+  });
+
+  it ( 'should get 0 ', ()=> {
+    let res= component.add(-1, 20)
+    expect(res).toBe(0)
+
+  });
+
+  it ('loggedin should be true', ()=>{
+    let service = new AuthService()
+    let home = new HomeComponent(service)
+    spyOn(service, "isLoggedInUser").and.returnValue(true)
+    let res= home.isUserLoggedIn()
+    expect(res).toBeTrue()
+  })
+
+  it ('loggedin should be false', ()=>{
+    let service = new AuthService()
+    let home = new HomeComponent(service)
+    spyOn(service, "isLoggedInUser").and.returnValue(false)
+    let res= home.isUserLoggedIn()
+    expect(res).toBeFalse()
+  })
+
 });
 
-*/
 
 
+/*
 
 describe ('addition testing', ()=>{
 
@@ -62,3 +87,5 @@ describe ('addition testing', ()=>{
   });
 
 })
+
+*/
